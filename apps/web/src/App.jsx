@@ -8,7 +8,7 @@ import ThankYou from "./pages/ThankYou";
 
 function App() {
   return (
-    <Router basename="/modular-kitchen-bhopal">
+    <Router>
       <HelloBar />
       <ScrollToTop />
       <Routes>

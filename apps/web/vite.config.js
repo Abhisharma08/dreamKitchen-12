@@ -285,7 +285,6 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
-	base: '/modular-kitchen-bhopal',
 	optimizeDeps: {
 		include: allDeps,
 	},
