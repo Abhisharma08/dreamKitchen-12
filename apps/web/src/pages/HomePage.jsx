@@ -237,7 +237,7 @@ const handleSubmit = async (e) => {
       icon: Box,
       title: 'Membrane Kitchen',
       description: 'Budget-friendly membrane finish kitchen designs. Explore our membrane kitchen catalog for affordable kitchen options that do not compromise on style.',
-      image: 'https://images.unsplash.com/photo-1669211620495-00ad7993169a',
+      image: 'https://res.cloudinary.com/ddqqlfsjp/image/upload/v1776871878/WhatsApp_Image_2026-04-22_at_3.12.49_PM_u7qus9.jpg',
       alt: 'Budget-friendly membrane finish kitchen design',
       imageContentKey: 'material-membrane-image'
     },
