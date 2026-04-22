@@ -658,11 +658,11 @@ const handleSubmit = async (e) => {
                 <Phone className="h-5 w-5 mr-2" />
                 Call +91 9403893424
               </Button>
-              <Button size="lg" variant="outline" className="border-accent-foreground/20 text-accent-foreground hover:bg-accent-foreground/10 transition-all duration-200 active:scale-[0.98]" onClick={() => window.open('https://wa.me/919403893424', '_blank')}>
+              <Button size="lg" className="bg-background text-foreground hover:bg-background/90 transition-all duration-200 active:scale-[0.98]" onClick={() => window.open('https://wa.me/919403893424', '_blank')}>
                 <MessageCircle className="h-5 w-5 mr-2" />
                 WhatsApp Us
               </Button>
-              <Button size="lg" variant="outline" className="border-accent-foreground/20 text-accent-foreground hover:bg-accent-foreground/10 transition-all duration-200 active:scale-[0.98]" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <Button size="lg" className="bg-background text-foreground hover:bg-background/90 transition-all duration-200 active:scale-[0.98]" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 Get Free Quotation
               </Button>
             </div>

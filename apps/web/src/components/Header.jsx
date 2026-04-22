@@ -27,8 +27,12 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
-            <a href="#home" className="text-xl font-bold text-foreground" style={{letterSpacing: '-0.02em'}}>
-              Dream Kitchens
+            <a href="/" className="flex items-center">
+              <img 
+                src="https://res.cloudinary.com/ddqqlfsjp/image/upload/v1753956155/logo2_cueg8i.png"
+                alt="Dream Kitchens Logo"
+                className="h-12 w-auto"
+              />
             </a>
           </div>
 
