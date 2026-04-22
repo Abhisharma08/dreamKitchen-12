@@ -1,11 +1,14 @@
 {
   "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
   "framework": "vite",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/modular-kitchen-bhopal/:path*",
+      "destination": "/modular-kitchen-bhopal/index.html"
+    },
+    {
+      "source": "/modular-kitchen-bhopal",
       "destination": "/modular-kitchen-bhopal/index.html"
     }
   ]
