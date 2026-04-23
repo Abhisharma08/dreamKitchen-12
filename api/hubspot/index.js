@@ -15,6 +15,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         properties: {
           firstname: body.name,
+          email: body.email,
           phone: body.phone,
           city: body.location,
           budget: body.budget,

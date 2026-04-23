@@ -28,6 +28,7 @@ const HomePage = () => {
 
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     location: '',
     requirement: '',
@@ -51,7 +52,7 @@ const HomePage = () => {
 const handleSubmit = async (e) => {
   e.preventDefault();
 
-  if (!formData.name || !formData.phone || !formData.location || !formData.budget) {
+  if (!formData.name || !formData.email || !formData.phone || !formData.location || !formData.budget) {
     toast.error('Please fill in all required fields');
     return;
   }
@@ -74,6 +75,7 @@ const handleSubmit = async (e) => {
   }, 1000);
       setFormData({
         name: '',
+        email: '',
         phone: '',
         location: '',
         requirement: '',
@@ -410,6 +412,9 @@ const handleSubmit = async (e) => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <Input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleInputChange} required className="text-foreground placeholder:text-muted-foreground" />
+                </div>
+                <div>
+                  <Input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleInputChange} required className="text-foreground placeholder:text-muted-foreground" />
                 </div>
                 <div>
                   <Input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required className="text-foreground placeholder:text-muted-foreground" />
