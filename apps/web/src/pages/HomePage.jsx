@@ -66,13 +66,17 @@ const handleSubmit = async (e) => {
       body: JSON.stringify(formData),
     });
 
-    const data = await res.json();
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      console.error("Failed to parse response as JSON");
+      toast.error("Unexpected server response. Please try again.");
+      return;
+    }
 
     if (res.ok) {
       toast.success("Request submitted. We will contact you shortly.");
-        setTimeout(() => {
-    navigate("/thank-you");
-  }, 1000);
       setFormData({
         name: '',
         email: '',
@@ -81,15 +85,19 @@ const handleSubmit = async (e) => {
         requirement: '',
         budget: ''
       });
+      setTimeout(() => {
+        navigate("/thank-you");
+      }, 1000);
     } else {
-      toast.error("Something went wrong");
+      toast.error(data?.message || "Something went wrong");
       console.error(data);
     }
   } catch (error) {
     console.error(error);
-    toast.error("Server error");
+    toast.error("Server error. Please try again later.");
   }
 };
+
 
   const scrollToContact = () => {
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
