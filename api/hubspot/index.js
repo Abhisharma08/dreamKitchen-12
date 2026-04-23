@@ -1,10 +1,25 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
     const body = req.body;
+
+    if (!process.env.HUBSPOT_ACCESS_TOKEN) {
+      console.error("Missing HUBSPOT_ACCESS_TOKEN");
+      return res.status(500).json({ error: "Server configuration error" });
+    }
 
     const response = await fetch("https://api.hubapi.com/crm/v3/objects/contacts", {
       method: "POST",
@@ -26,10 +41,8 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    // 🔥 ADD THIS (VERY IMPORTANT)
     console.log("HubSpot response:", data);
 
-    // ❗ handle errors properly
     if (!response.ok) {
       return res.status(response.status).json(data);
     }
@@ -39,4 +52,4 @@ export default async function handler(req, res) {
     console.error("Server error:", error);
     res.status(500).json({ error: "Failed to send data" });
   }
-}
+};
